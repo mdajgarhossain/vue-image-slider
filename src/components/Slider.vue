@@ -5,28 +5,34 @@
         <img :src="currentImage" />
       </div>
     </transition-group>
+    <a class="previous" @click="showPreviousSlide" href="#">&#10094;</a>
+    <a class="next" @click="showNextSlide" href="#">&#10095;</a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Slider',
+  name: "Slider",
   data() {
     return {
       images: [
-        'https://cdn.pixabay.com/photo/2021/03/12/12/28/beach-6089501_960_720.jpg',
-        'https://cdn.pixabay.com/photo/2021/04/11/12/11/plum-blossom-6169571_960_720.jpg',
-        'https://cdn.pixabay.com/photo/2021/01/11/08/53/sky-5907605_960_720.jpg'
+        "https://cdn.pixabay.com/photo/2021/03/12/12/28/beach-6089501_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2021/04/11/12/11/plum-blossom-6169571_960_720.jpg",
+        "https://cdn.pixabay.com/photo/2021/01/11/08/53/sky-5907605_960_720.jpg",
       ],
       currentIndex: 0,
       timer: null,
-    }
+    };
   },
 
   computed: {
     currentImage() {
-      return this.images && this.images.length && this.images[Math.abs(this.currentIndex) % this.images.length];
-    }
+      return (
+        this.images &&
+        this.images.length &&
+        this.images[Math.abs(this.currentIndex) % this.images.length]
+      );
+    },
   },
 
   mounted() {
@@ -35,33 +41,48 @@ export default {
 
   methods: {
     startSlide() {
-      this.timer = setInterval(this.showNextSlide, 3000);
+      this.timer = setInterval(this.showNextSlide, 5000);
     },
 
     showNextSlide() {
-      this.currentIndex += 1
+      this.currentIndex += 1;
     },
     showPreviousSlide() {
-      this.currentIndex -= 1
-    }
-  }
-}
+      this.currentIndex -= 1;
+    },
+  },
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style>
+.previous,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.7s ease;
+  border-radius: 0 4px 4px 0;
+  text-decoration: none;
+  user-select: none;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.next {
+  right: 0;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.previous {
+  left: 0;
 }
-a {
-  color: #42b983;
+.previous:hover, .next:hover {
+  background-color: rgba(0,0,0,0.9);
+}
+
+
+img {
+  height: 600px;
+  width: 100%;
 }
 </style>
