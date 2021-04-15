@@ -19,13 +19,32 @@ export default {
         'https://cdn.pixabay.com/photo/2021/01/11/08/53/sky-5907605_960_720.jpg'
       ],
       currentIndex: 0,
+      timer: null,
     }
   },
-   computed: {
-     currentImage() {
-       return this.images && this.images.length && this.images[Math.abs(this.currentIndex) % this.images.length];
-     }
-   }
+
+  computed: {
+    currentImage() {
+      return this.images && this.images.length && this.images[Math.abs(this.currentIndex) % this.images.length];
+    }
+  },
+
+  mounted() {
+    this.startSlide();
+  },
+
+  methods: {
+    startSlide() {
+      this.timer = setInterval(this.showNextSlide, 3000);
+    },
+
+    showNextSlide() {
+      this.currentIndex += 1
+    },
+    showPreviousSlide() {
+      this.currentIndex -= 1
+    }
+  }
 }
 </script>
 
