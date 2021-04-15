@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition-group tag="div">
+    <transition-group tag="div" name="fade">
       <div v-for="i in [currentIndex]" :key="i">
         <img :src="currentImage" />
       </div>
@@ -84,5 +84,21 @@ export default {
 img {
   height: 600px;
   width: 100%;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.9s ease;
+  overflow: hidden;
+  visibility: visible;
+  position: absolute;
+  width:100%;
+  opacity: 1;
+}
+
+.fade-enter,
+.fade-leave-to {
+  visibility: hidden;
+  width:100%;
+  opacity: 0;
 }
 </style>
