@@ -84,6 +84,7 @@ export default {
 img {
   height: 600px;
   width: 100%;
+  object-fit: cover;
 }
 .fade-enter-active,
 .fade-leave-active {
