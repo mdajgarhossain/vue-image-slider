@@ -13,13 +13,9 @@
 <script>
 export default {
   name: "Slider",
+  props: { images: Array },
   data() {
     return {
-      images: [
-        "https://cdn.pixabay.com/photo/2021/03/12/12/28/beach-6089501_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2021/04/11/12/11/plum-blossom-6169571_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2021/01/11/08/53/sky-5907605_960_720.jpg",
-      ],
       currentIndex: 0,
       timer: null,
     };
@@ -76,10 +72,10 @@ export default {
 .previous {
   left: 0;
 }
-.previous:hover, .next:hover {
-  background-color: rgba(0,0,0,0.9);
+.previous:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.9);
 }
-
 
 img {
   height: 600px;
@@ -92,14 +88,14 @@ img {
   overflow: hidden;
   visibility: visible;
   position: absolute;
-  width:100%;
+  width: 100%;
   opacity: 1;
 }
 
 .fade-enter,
 .fade-leave-to {
   visibility: hidden;
-  width:100%;
+  width: 100%;
   opacity: 0;
 }
 </style>
