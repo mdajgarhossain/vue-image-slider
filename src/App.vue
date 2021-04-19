@@ -16,7 +16,7 @@ export default {
     return {
       images: [
         {
-          title: "Welcom to california",
+          title: "Welcome to california",
           imageUrl:
             "https://cdn.pixabay.com/photo/2021/03/12/12/28/beach-6089501_960_720.jpg",
           text: "California, a western U.S. state",
