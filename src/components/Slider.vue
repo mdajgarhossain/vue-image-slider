@@ -1,8 +1,8 @@
 <template>
   <div>
     <transition-group tag="div" name="fade">
-      <div v-for="i in [currentIndex]" :key="i">
-        <img :src="currentImage" />
+      <div v-for="i in [currentIndex]" :key="i" class="sliderContainer">
+        <SingleImage :currentImage="currentImage" />
       </div>
     </transition-group>
     <a class="previous" @click="showPreviousSlide" href="#">&#10094;</a>
@@ -11,9 +11,13 @@
 </template>
 
 <script>
+import SingleImage from "@/components/SingleImage.vue";
 export default {
   name: "Slider",
   props: { images: Array },
+  components: {
+    SingleImage,
+  },
   data() {
     return {
       currentIndex: 0,
@@ -77,11 +81,6 @@ export default {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-img {
-  height: 600px;
-  width: 100%;
-  object-fit: cover;
-}
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.9s ease;

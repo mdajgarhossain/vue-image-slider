@@ -15,10 +15,24 @@ export default {
   data() {
     return {
       images: [
-        "https://cdn.pixabay.com/photo/2021/03/12/12/28/beach-6089501_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2021/04/11/12/11/plum-blossom-6169571_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2021/01/11/08/53/sky-5907605_960_720.jpg",
-        "https://cdn.pixabay.com/photo/2020/08/10/11/22/mountains-5477557_960_720.jpg",
+        {
+          title: "Welcom to california",
+          imageUrl:
+            "https://cdn.pixabay.com/photo/2021/03/12/12/28/beach-6089501_960_720.jpg",
+          text: "California, a western U.S. state",
+          button: "Get Started",
+        },
+        {
+          title: "Hello there! This is the tech world",
+          text:
+            "Technology is the sum of techniques, skills, methods, and processes",
+          imageUrl:
+            "https://cdn.pixabay.com/photo/2018/02/23/04/38/laptop-3174729_960_720.jpg",
+        },
+        {
+          imageUrl:
+            "https://cdn.pixabay.com/photo/2019/07/14/16/29/pen-4337524_960_720.jpg",
+        },
       ],
     };
   },
